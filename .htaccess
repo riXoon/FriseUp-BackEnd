@@ -1,0 +1,30 @@
+RewriteEngine On
+
+# Allow access to register.php
+RewriteRule ^signup$ register.php [L]
+RewriteRule ^savetransaction$ transaction.php [L]
+RewriteRule ^transaction$ transaction.php [L]
+RewriteRule ^username$ login.php [L]
+RewriteRule ^recentorder$ recentorder.php [L]
+RewriteRule ^reviews$ reviews.php [L]
+RewriteRule ^report$ report.php [L]
+RewriteRule ^stars$ fetchStars.php [L]
+RewriteRule ^notif$ notifications.php [L]
+RewriteRule ^salesreport$ sales_report.php [L]
+
+
+# Pass other requests to their corresponding files or directories
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "http://localhost:5173"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS, DELETE, PUT"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+    Header set Access-Control-Allow-Credentials "true"
+</IfModule>
+
+
+
+
+
